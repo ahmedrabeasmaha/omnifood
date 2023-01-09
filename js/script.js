@@ -8,11 +8,27 @@ allLinks.forEach(function (link) {
         top: 0,
         behavior: "smooth",
       });
-    if (href !== "#" && href.startsWith("#")) {
+    else if (href !== "#" && href.startsWith("#")) {
       const sectionEl = document.querySelector(href);
       sectionEl.scrollIntoView({ behavior: "smooth" });
     }
-    if (link.classList.contains("main-nav-link"))
-      headerEl.classList.toggle("nav-open");
   });
 });
+
+const sectionHero = document.querySelector(".section-hero");
+const obs = new IntersectionObserver(
+  function (entries) {
+    const ent = entries[0];
+    if (ent.isIntersecting === false) {
+      document.body.classList.add("sticky");
+    }
+    else if (ent.isIntersecting === true) {
+      document.body.classList.remove("sticky");
+    }
+  }
+);
+obs.observe(sectionHero);
+
+const year = document.querySelector(".year");
+const currentYear = new Date().getFullYear();
+year.textContent = currentYear;
