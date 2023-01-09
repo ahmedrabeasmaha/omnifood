@@ -16,3 +16,12 @@
 .center-text {
   text-align: center;
 }
+.grid-4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+.margin-bottom-lg {
+  margin-bottom: 9.6rem !important;
+}
+.grid-footer {
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+}
